@@ -2,6 +2,10 @@
 
 Công cụ tự động nộp hồ sơ trên trang **ricecitylongchau.com**
 
+## 🎥 Video hướng dẫn
+
+👉 **[Xem video demo tool chạy tại đây](https://jam.dev/c/0cd20afa-dcc9-4c13-ab50-4ed07b608e43)**
+
 ---
 
 ## 📖 Hướng dẫn sử dụng
