@@ -153,6 +153,14 @@ Panel góc phải sẽ hiển thị:
   2. Click nút **"▶️ Bắt đầu"** để khởi động lại tool
   3. Nếu vẫn bị: **Refresh trang (F5)** và bắt đầu lại từ đầu
 
+**Vấn đề: Tool chạy lâu nhưng KHÔNG thấy thông báo "Hiện đang có nhiều người nộp hồ sơ..."**
+- Nguyên nhân: Tool có thể đang bị lỗi, không chặn alert được
+- Dấu hiệu nhận biết:
+  - Tool đã chạy hơn 10-20 lần submit
+  - Không thấy bất kỳ thông báo lỗi nào từ server
+  - Panel vẫn đang chạy nhưng số `❌` không tăng
+- **Giải pháp: Refresh trang (F5) ngay lập tức và chạy lại tool**
+
 **Vấn đề: Captcha cứ báo cần tick thủ công**
 - Nguyên nhân: Bạn đang mở F12 hoặc submit quá nhiều
 - Giải pháp:
