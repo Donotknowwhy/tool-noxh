@@ -86,7 +86,7 @@ Tool sẽ dừng khi:
 - **Đóng F12** (DevTools) khi sử dụng → Captcha sẽ tự động verify nhanh hơn
 - Để tool chạy đến khi thành công hoặc tự dừng
 - Kiểm tra panel góc phải để biết tool đang chạy hay dừng
-- **Cài tool trên nhiều thiết bị khác nhau** (điện thoại, laptop, máy bạn bè) và chạy cùng lúc → Tăng tỉ lệ thành công, tránh bị captcha manual thường xuyên
+- **Cài tool trên nhiều máy tính khác nhau** (laptop cá nhân, máy bạn bè, máy công ty) và chạy cùng lúc → Tăng tỉ lệ thành công, tránh bị captcha manual thường xuyên
 
 ### ❌ KHÔNG NÊN:
 - Đóng tab khi tool đang chạy
@@ -129,7 +129,7 @@ Panel góc phải sẽ hiển thị:
 - Đáp: Click nút "⏹️ Dừng" trên panel.
 
 **Hỏi: Captcha cứ báo manual hoài, làm sao?**
-- Đáp: Đây là do hệ thống phát hiện submit nhiều lần từ cùng 1 IP. **Giải pháp tốt nhất:** Cài tool trên nhiều thiết bị khác nhau (laptop, điện thoại, máy bạn bè) có kết nối mạng khác nhau và chạy cùng lúc. Điều này giúp:
+- Đáp: Đây là do hệ thống phát hiện submit nhiều lần từ cùng 1 IP. **Giải pháp tốt nhất:** Cài tool trên nhiều máy tính khác nhau (laptop cá nhân, máy bạn bè, máy công ty) có kết nối mạng khác nhau và chạy cùng lúc. Điều này giúp:
   - Phân tán request từ nhiều IP khác nhau
   - Giảm nguy cơ bị phát hiện bot
   - Tăng tỉ lệ thành công
