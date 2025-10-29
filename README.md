@@ -4,7 +4,7 @@ Công cụ tự động nộp hồ sơ trên trang **ricecitylongchau.com**
 
 ## 📥 Tải về
 
-👉 **[Tải tool tại đây (GitHub Release)](https://github.com/xuankien2004/tool-noxh/releases/latest)**
+👉 **[Tải tool tại đây (GitHub Release)](https://github.com/Donotknowwhy/tool-noxh/releases/latest)**
 
 ## 🎥 Video hướng dẫn
 
@@ -16,7 +16,7 @@ Công cụ tự động nộp hồ sơ trên trang **ricecitylongchau.com**
 
 ### Bước 1: Tải và cài đặt
 
-1. **Tải file tool-noxh.zip** từ [GitHub Release](https://github.com/xuankien2004/tool-noxh/releases/latest)
+1. **Tải file tool-noxh.zip** từ [GitHub Release](https://github.com/Donotknowwhy/tool-noxh/releases/latest)
 2. **Giải nén** file zip
 3. Mở trình duyệt **Chrome**
 4. Gõ vào thanh địa chỉ: `chrome://extensions/`
