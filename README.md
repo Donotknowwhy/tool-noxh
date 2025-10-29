@@ -146,6 +146,13 @@ Panel góc phải sẽ hiển thị:
 - Kiểm tra: Đã upload file chưa?
 - Giải pháp: Refresh trang và thử lại
 
+**Vấn đề: Quá nhiều thông báo giống nhau xuất hiện liên tục trên màn hình**
+- Nguyên nhân: Tool đang không hoạt động ổn định hoặc bị lỗi
+- Giải pháp (làm theo thứ tự):
+  1. Click nút **"⏹️ Dừng"** để dừng tool
+  2. Click nút **"▶️ Bắt đầu"** để khởi động lại tool
+  3. Nếu vẫn bị: **Refresh trang (F5)** và bắt đầu lại từ đầu
+
 **Vấn đề: Captcha cứ báo cần tick thủ công**
 - Nguyên nhân: Bạn đang mở F12 hoặc submit quá nhiều
 - Giải pháp:
