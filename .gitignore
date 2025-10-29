@@ -1,0 +1,7 @@
+# Extension
+.DS_Store
+*.log
+
+# Config (nếu có)
+.env
+
