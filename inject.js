@@ -193,51 +193,29 @@
     const startTime = Date.now();
     let logCount = 0;
     let userNotified = false;
-    let autoClickAttempts = 0;
-    let maxAutoClickAttempts = 3;
 
     console.log('🔍 [Captcha Check] Bắt đầu kiểm tra captcha...');
 
     while (Date.now() - startTime < maxWaitTime) {
       if (isCaptchaVerified()) {
-        log('✅ Captcha đã verify thành công!', 'success');
         console.log('✅ [Captcha Check] THÀNH CÔNG - Captcha đã verify!');
+        // KHÔNG hiển thị notification (giảm spam)
         return true;
       }
 
       // Log mỗi vài giây để user biết đang đợi
       logCount++;
       if (logCount === 1) {
-        log('⏳ Đang đợi captcha verify...', 'warning', 5000);
-      } else if (logCount === 6) {
-        // Sau 3s (6 * 500ms), thử click vào captcha lần 1
-        console.log('🤖 [Captcha Auto] Thử tự động click captcha (lần 1)...');
-        if (tryClickCaptchaCheckbox()) {
-          log('🖱️ Đã thử click captcha tự động...', 'info', 3000);
-          autoClickAttempts++;
-        }
-      } else if (logCount === 14) {
-        // Sau 7s (14 * 500ms), thử click vào captcha lần 2
-        console.log('🤖 [Captcha Auto] Thử tự động click captcha (lần 2)...');
-        if (tryClickCaptchaCheckbox()) {
-          autoClickAttempts++;
-        }
+        // KHÔNG hiển thị notification đợi captcha (giảm spam)
+        console.log('⏳ [Captcha Check] Đang đợi captcha verify...');
       } else if (logCount === 20 && !userNotified) {
-        // Sau 10s (20 * 500ms) vẫn chưa verify
+        // Sau 10s (20 * 500ms) vẫn chưa verify - CHỈ HIỂN thị khi QUAN TRỌNG
         console.log('⚠️ [Captcha Check] Captcha chưa verify sau 10s');
-        console.log('💡 [Captcha Check] Có thể captcha yêu cầu thao tác thủ công');
-        console.log(`🤖 [Captcha Auto] Đã thử auto-click ${autoClickAttempts} lần`);
-        log('⚠️ Captcha có thể cần tích thủ công!', 'warning', 8000);
+        console.log('💡 [Captcha Check] Có thể captcha ở MANUAL MODE, cần user click thủ công');
+        log('⚠️ Captcha cần CLICK THỦ CÔNG!', 'warning', 10000);
         userNotified = true;
-
-        // Thử click lần 3
-        if (autoClickAttempts < maxAutoClickAttempts) {
-          console.log('🤖 [Captcha Auto] Thử tự động click captcha (lần 3)...');
-          tryClickCaptchaCheckbox();
-          autoClickAttempts++;
-        }
       } else if (logCount % 10 === 0) {
-        // Log mỗi 5s (10 lần * 500ms)
+        // Log mỗi 5s - CHỈ CONSOLE, KHÔNG notification
         const elapsed = Math.floor((Date.now() - startTime) / 1000);
         console.log(`⏳ [Captcha Check] Đã đợi ${elapsed}s... (đang chờ captcha)`);
       }
@@ -249,7 +227,6 @@
     log('❌ Timeout: Captcha chưa verify sau 60 giây', 'error');
     log('💡 Thử refresh trang hoặc đợi ít submit hơn', 'warning', 10000);
     console.log('❌ [Captcha Check] TIMEOUT - Captcha chưa verify sau 60 giây');
-    console.log(`🤖 [Captcha Auto] Đã thử auto-click ${autoClickAttempts} lần nhưng không thành công`);
     console.log('💡 [Captcha Check] Khuyến nghị: Refresh trang hoặc đợi vài phút để IP không bị đánh dấu');
     return false;
   }
@@ -410,7 +387,7 @@
     console.log(`📍 Submit button ID: ${submitButton.id || 'N/A'}`);
     console.log(`📍 Submit button class: ${submitButton.className || 'N/A'}`);
 
-    log(`🔄 Lần submit thứ ${retryCount}...`, 'info');
+    // KHÔNG hiển thị notification "Lần submit thứ X" (đã xóa ở bước trước nhưng vẫn còn sót)
 
     // Reset alert blocked flag
     alertBlocked = false;

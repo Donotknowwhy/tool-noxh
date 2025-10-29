@@ -1,132 +1,149 @@
-# RiceCity Auto Submit - Chrome Extension
+# 🚀 Tool Auto Submit - ricecitylongchau.com
 
-Công cụ tự động submit form cho trang web **ricecitylongchau.com/nop-ho-so-scan** với khả năng retry khi gặp lỗi "quá tải".
-
-## 🎯 Tính năng
-
-- ✅ **Giữ nguyên form data** (không reload trang)
-- ✅ **Giữ nguyên file upload** (không cần upload lại)
-- ✅ Tự động submit liên tục
-- ✅ Tự động xử lý JavaScript alert (window.alert)
-- ✅ UI control panel trên trang web
-- ✅ Có thể dừng/start bất cứ lúc nào
-- ✅ Retry nhanh chóng
-
-## 🚀 Quick Start
-
-### Bước 1: Cài Extension
-
-1. Mở **Chrome** và vào: `chrome://extensions/`
-2. Bật **Developer mode** (switch góc trên bên phải)
-3. Click **"Load unpacked"** hoặc **"Tải tiện ích chưa đóng gói"**
-4. Chọn **thư mục này** (tool-noxh)
-5. ✅ Done! Icon extension sẽ xuất hiện
-
-### Bước 2: Sử dụng
-
-1. Vào trang: https://ricecitylongchau.com/nop-ho-so-scan
-2. **Điền form** + **upload file** (đừng submit vội!)
-3. Nhìn góc trên bên phải → Control panel màu tím sẽ xuất hiện
-4. Click nút **"▶️ Bắt đầu"**
-5. ☕ Uống cà phê và đợi kết quả!
-
-### Bước 3: Xem kết quả
-
-- Logs hiển thị trên **Console (F12)**
-- Control panel hiển thị **số lần đã submit**
-- Tự động dừng khi thành công hoặc đạt max retries
-
-## 💡 Cách hoạt động
-
-1. **Điền form thủ công lần đầu** (nhập thông tin, upload file, tick checkbox)
-2. **Không click submit vội!**
-3. Click **"▶️ Bắt đầu"** trên control panel
-4. Tool sẽ tự động:
-   - Click nút submit
-   - Nếu xuất hiện alert "quá tải" → tự động click OK
-   - Retry ngay lập tức
-   - **Form data và file vẫn giữ nguyên!**
-
-## ⚙️ Cấu hình
-
-Mở file `content.js`, tìm dòng 12-13:
-
-```javascript
-let maxRetries = 50;              // Số lần submit tối đa
-let delayBetweenRetries = 3000;   // Delay giữa các lần (ms)
-```
-
-## 🔍 Tìm selector (nếu cần)
-
-Nếu tool không tìm thấy nút submit:
-
-1. Mở trang web và **F12** để mở DevTools
-2. Click **Inspect** element
-3. Chọn nút submit
-4. Copy selector (ví dụ: `button[type="submit"]`)
-5. Update trong `content.js` dòng 11:
-
-```javascript
-let submitButtonSelector = 'button[type="submit"]';
-```
-
-## 🐛 Xử lý lỗi
-
-### Extension không hiển thị?
-- Kiểm tra Console (F12) có lỗi không
-- Refresh trang web
-- Xem lại manifest.json có đúng không
-
-### Không tự động submit?
-- Mở Console xem logs
-- Kiểm tra selector của submit button
-- Click manual 1 lần để test
-
-### Alert không bị auto OK?
-- Tool đang override `window.alert()`
-- Kiểm tra Console có log alert không
-- Có thể trang web dùng cách khác (không phải alert)
-
-## 📁 Cấu trúc
-
-```
-tool-noxh/
-├── content.js           # Logic chính
-├── manifest.json        # Extension config
-├── popup.html/js        # Popup UI
-├── README.md            # File này
-├── INSTRUCTIONS.md      # Hướng dẫn chi tiết
-├── README_EXTENSION.md  # Tài liệu kỹ thuật
-└── icons/               # Extension icons
-```
-
-## 💡 Giải thích JavaScript Alert
-
-**window.alert()** hiển thị popup dạng:
-```
-ricecitylongchau.com says
-"Hiện đang có nhiều người nộp hồ sơ, bạn vui lòng thử lại trong ít phút"
-                                  [OK]
-```
-
-Extension tự động:
-1. Detect alert message
-2. Tự động click OK
-3. Retry submit ngay lập tức
-4. **Giữ nguyên form data và file!**
-
-## ⚠️ Lưu ý
-
-- Tool này chỉ để **học tập và nghiên cứu**
-- Sử dụng có **trách nhiệm**
-- Không spam server
-- Đọc kỹ **terms of service**
-
-## 📖 Tài liệu
-
-- [Hướng dẫn cài đặt chi tiết](INSTRUCTIONS.md)
-- [Tài liệu kỹ thuật](README_EXTENSION.md)
+Công cụ tự động nộp hồ sơ trên trang **ricecitylongchau.com**
 
 ---
 
-**Chúc bạn submit thành công! 🎯**
+## 📖 Hướng dẫn sử dụng
+
+### Bước 1: Cài đặt
+
+1. Mở trình duyệt **Chrome**
+2. Gõ vào thanh địa chỉ: `chrome://extensions/`
+3. Bật **"Developer mode"** (góc phải trên)
+4. Click nút **"Load unpacked"**
+5. Chọn thư mục `tool-noxh`
+6. ✅ Xong!
+
+### Bước 2: Sử dụng
+
+1. Vào trang: **ricecitylongchau.com/nop-ho-so-scan**
+2. **Điền đầy đủ thông tin** vào form
+3. **Upload file** hồ sơ
+4. Nhìn **góc phải màn hình** → sẽ thấy panel màu tím
+5. Click nút **"▶️ Bắt đầu"**
+6. Tool sẽ tự động submit liên tục
+
+### Bước 3: Dừng tool
+
+- Click nút **"⏹️ Dừng"** khi muốn ngừng
+
+---
+
+## ⚠️ LƯU Ý QUAN TRỌNG
+
+### 🔐 Về Captcha (Xác minh bảo mật)
+
+**Captcha là gì?**
+- Ô có chữ "Xác minh bạn không phải là robot" phía dưới form
+
+**Cách hoạt động:**
+- ✅ **Bình thường:** Captcha tự động tick sau vài giây → Tool chạy ngon
+- ⚠️ **Đôi khi:** Captcha yêu cầu bạn phải tick thủ công
+
+**Nếu captcha cần tick thủ công:**
+
+1. Tool sẽ hiển thị thông báo màu cam:
+   ```
+   ⚠️ Captcha cần CLICK THỦ CÔNG!
+   ```
+
+2. **BẠN CẦN LÀM:**
+   - Nhìn xuống phần captcha
+   - **Click vào ô captcha** để tick
+   - Đợi captcha verify (hiện chữ "Thành công!")
+   - Tool sẽ tự động tiếp tục submit
+
+3. **Lưu ý:** Nếu không tick captcha, tool sẽ đợi 60 giây rồi bỏ qua lần đó
+
+### 🔄 Khi gặp lỗi "Hiện đang có nhiều người nộp hồ sơ"
+
+- Tool sẽ **TỰ ĐỘNG** thử lại
+- **KHÔNG CẦN** làm gì cả
+- Tool sẽ chờ vài giây rồi tự động submit lại
+
+### ✅ Khi nào tool TỰ ĐỘNG DỪNG?
+
+Tool sẽ dừng khi:
+- Nộp hồ sơ thành công
+- Nhận được thông báo từ server (không phải lỗi "quá tải")
+
+---
+
+## 💡 Mẹo để tool chạy tốt nhất
+
+### ✅ NÊN:
+- **Đóng F12** (DevTools) khi sử dụng → Captcha sẽ tự động verify nhanh hơn
+- Để tool chạy đến khi thành công hoặc tự dừng
+- Kiểm tra panel góc phải để biết tool đang chạy hay dừng
+
+### ❌ KHÔNG NÊN:
+- Đóng tab khi tool đang chạy
+- Refresh trang khi tool đang chạy
+- Mở quá nhiều tab cùng lúc
+
+---
+
+## 📊 Hiểu thông tin trên Panel
+
+Panel góc phải sẽ hiển thị:
+
+```
+🟢 Đang chạy - Lần 25
+✅5 | ❌20
+```
+
+**Giải thích:**
+- `Lần 25`: Đã submit 25 lần
+- `✅5`: Thành công 5 lần
+- `❌20`: Thất bại 20 lần (do lỗi "quá tải")
+
+---
+
+## ❓ Câu hỏi thường gặp
+
+**Hỏi: Captcha không tự động tick?**
+- Đáp: Đóng F12 và refresh trang. Nếu vẫn không tick tự động, bạn cần tick thủ công.
+
+**Hỏi: Làm sao biết tool đang chạy?**
+- Đáp: Panel góc phải hiển thị `🟢 Đang chạy - Lần X`
+
+**Hỏi: Tool có spam quá nhiều không?**
+- Đáp: Không. Tool tự động chờ từ 1.5-5 giây giữa các lần submit.
+
+**Hỏi: Tôi có cần làm gì khi tool đang chạy không?**
+- Đáp: Không cần. Chỉ cần tick captcha thủ công nếu tool báo.
+
+**Hỏi: Nếu muốn dừng giữa chừng thì sao?**
+- Đáp: Click nút "⏹️ Dừng" trên panel.
+
+---
+
+## 🛠️ Xử lý sự cố
+
+**Vấn đề: Panel không hiển thị**
+- Giải pháp: Refresh trang web (F5)
+
+**Vấn đề: Tool không submit**
+- Kiểm tra: Đã điền đầy đủ thông tin chưa?
+- Kiểm tra: Đã upload file chưa?
+- Giải pháp: Refresh trang và thử lại
+
+**Vấn đề: Captcha cứ báo cần tick thủ công**
+- Nguyên nhân: Bạn đang mở F12 hoặc submit quá nhiều
+- Giải pháp:
+  - Đóng F12
+  - Refresh trang
+  - Đợi vài phút rồi chạy lại
+
+---
+
+## 📞 Lưu ý
+
+- Tool này được tạo ra để **tiết kiệm thời gian** khi nộp hồ sơ
+- Sử dụng có **trách nhiệm**
+- Nếu gặp lỗi nghiêm trọng, hãy dừng tool và thử lại sau
+
+---
+
+**Chúc bạn nộp hồ sơ thành công! 🎉**
